@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <link rel="stylesheet" href="/style.css" />
+  <body>
+    <div id="myDIV" class="header">
+      <h2 style="margin: 5px">My To Do List</h2>
+      <input type="text" id="myInput" placeholder="Title..." />
+      <span onclick="newElement()" class="addBtn">Add</span>
+    </div>
+
+    <ul id="myUL">
+      <li>Hit the gym</li>
+      <li class="checked">Pay bills</li>
+      <li>Meet George</li>
+      <li>Buy eggs</li>
+      <li>Read a book</li>
+      <li>Organize office</li>
+    </ul>
+
+    <script>
+      //create the close button
+      var Nodelist = document.getElementsByTagName("LI");
+      var i;
+      for (i = 0; i < Nodelist.length; i++) {
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        Nodelist[i].appendChild(span);
+      }
+      //   clicking on close to close the todos
+      var close = document.getElementsByClassName("close");
+      for (let i = 0; i < close.length; i++) {
+        close[i].onclick = function () {
+          var div = this.parentElement;
+
+          div.style.display = "none";
+        };
+      }
+      //   create the check text line
+      var list = document.querySelector("ul");
+      list.addEventListener(
+        "click",
+        function (e) {
+          if (e.target.tagName == "LI") {
+            e.target.classList.toggle("checked");
+          }
+        },
+        false
+      );
+      function newElement() {
+        var li = document.createElement("li");
+        var inputValue = document.getElementById("myInput").value;
+        var eletxt = document.createTextNode(inputValue);
+        li.appendChild(eletxt);
+        if (inputValue === "") {
+          alert("you must write something");
+        } else {
+          document.getElementById("myUL").appendChild(li);
+        }
+
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
+        for (let i = 0; i < close.length; i++) {
+          close[i].onclick = function () {
+            var div = this.parentElement;
+
+            div.style.display = "none";
+          };
+        }
+      }
+    </script>
+  </body>
+</html>
