@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom Manipulations</title>
+    <style>
+      .links {
+        font-size: larger;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar" class="nav">
+      <ul class="links" id="new1">
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">contact</a>
+        </li>
+        <li>
+          <a href="#">about</a>
+        </li>
+        <li>
+          <a href="#">Home</a>
+        </li>
+      </ul>
+      <span id="spnhi">hell this is span tag</span>
+    </div>
+    <script>
+      const nav = document.getElementById("navbar");
+      const li = document.querySelectorAll("li");
+      const li2 = document.createElement("li");
+      const a = document.createElement("a");
+      const div = document.createElement("div");
+      const span1 = document.getElementById("spnhi");
+      // li2.innerHTML = "ajaa";
+      // Create an element
+      div.id = "content";
+      a.textContent = "FAQ";
+      div.className = "divclass";
+      div.textContent = "this is the new div created";
+      document.body.append(div);
+      document.body.append(li2);
+      li2.append(a);
+      new1.append(li2);
+      navbar.append(div);
+
+      // changing the text
+      li[0].textContent = "Home is here";
+      div.textContent = "here is the modified text";
+      // Removing the elements
+      // nav.removeChild(span1);
+      // Seeing and changing  the attributes
+      console.log(nav.getAttribute("id"));
+      // Adding manipulating the Attribute
+      nav.setAttribute("id", "nasss");
+      console.log(div.getAttribute("id"));
+      li2.setAttribute("id", "temp");
+      li2.removeAttribute("id");
+
+      // maniplating the classes
+      nav.classList.add("navssssds");
+      nav.classList.add("new1");
+
+      nav.classList.remove("navssssds");
+      // styles the element
+      span1.style.fontSize = "84px";
+      span1.style.color = "red";
+    </script>
+  </body>
+</html>
